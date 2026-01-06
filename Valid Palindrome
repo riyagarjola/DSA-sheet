@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+    int n=s.size();
+    int low=0,right=n-1;
+    while(low<right){
+    while(low<right && !isalnum(s[low])){
+        low++;
+    }
+    while(low<right && !isalnum(s[right])){
+        right--;
+    }
+    if(tolower(s[low]) != tolower(s[right])){
+        return false;
+    }
+    low++;right--;
+    }
+    return true;
+    }
+
+    bool isalnum(char c){
+     return (c>='A' && c<='Z' ||
+     c>='a' && c<='z' ||
+     c>='0' && c<='9');
+    }
+};
